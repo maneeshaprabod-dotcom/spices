@@ -50,7 +50,7 @@ const products = [
         description: 'Whole hand-picked Sri Lankan cloves with intense aroma. Ideal for cooking and medicinal use.',
         price: 12.99,
         category: 'spices',
-        image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&h=450&fit=crop',
+        image: 'https://www.istockphoto.com/photo/cloves-closeup-gm471346177-18921370&fit=crop',
         badge: null
     },
     {
