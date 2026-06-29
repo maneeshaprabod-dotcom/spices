@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CEYNOVA CINNAMON - Premium Ceylon Cinnamon & Sri Lankan Spices. Pure, sustainable, export-quality cinnamon directly from Sri Lankan farms.">
+    <meta name="keywords" content="Ceylon Cinnamon, Sri Lankan Spices, Cinnamon Sticks, Cinnamon Powder, Organic Spices, Premium Cinnamon, Export Quality">
+    <meta name="author" content="CEYNOVA CINNAMON">
+    <meta property="og:title" content="CEYNOVA CINNAMON - Pure Ceylon Cinnamon">
+    <meta property="og:description" content="Premium Ceylon Cinnamon exported from Sri Lanka. Experience the world's finest cinnamon, hand-harvested from sustainable farms.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ceynovacinnamon.com">
+    <meta property="og:image" content="https://ceynovacinnamon.com/images/og-image.jpg">
+    <title>CEYNOVA CINNAMON - Pure Ceylon Cinnamon | Premium Sri Lankan Spices</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <aside id="cart-sidebar" class="cart-sidebar" role="dialog" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkout-btn">Checkout</button>
+        </div>
+    </aside>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Image Gallery">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+        <img id="lightbox-img" src="" alt="Gallery image">
+        <button class="lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="CEYNOVA CINNAMON Home">
+                <span class="logo-icon">🌿</span>
+                <div class="logo-text">
+                    <span class="logo-name">CEYNOVA</span>
+                    <span class="logo-sub">CINNAMON</span>
+                </div>
+            </a>
+
+            <div class="nav-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="cart-toggle" id="cart-toggle" aria-label="Open shopping cart">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#why-choose" class="nav-link">Why Us</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" role="banner">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>✨ Premium Quality</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-line">Premium Ceylon</span>
+                <span class="hero-line">Cinnamon</span>
+                <span class="hero-line accent">Exported From Sri Lanka</span>
+            </h1>
+            <p class="hero-subtitle">
+                Experience the world's finest cinnamon, hand-harvested from sustainable Sri Lankan farms and delivered with uncompromising quality.
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary btn-lg">
+                    <span>Shop Now</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#about" class="btn btn-outline btn-lg">Learn More</a>
+            </div>
+            <div class="hero-scroll">
+                <a href="#about" aria-label="Scroll to About section">
+                    <span class="mouse">
+                        <span class="wheel"></span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-floating">
+            <div class="floating-item" style="--delay:0s;--x:10%;--y:20%">
+                <img src="https://images.unsplash.com/photo-1599940824399-b87987ce0799?w=200&h=200&fit=crop" alt="Cinnamon sticks" loading="lazy">
+            </div>
+            <div class="floating-item" style="--delay:1s;--x:80%;--y:30%">
+                <img src="https://images.unsplash.com/photo-1628556270448-e8c9b9a9e3b4?w=200&h=200&fit=crop" alt="Spice blend" loading="lazy">
+            </div>
+            <div class="floating-item" style="--delay:2s;--x:70%;--y:70%">
+                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=200&h=200&fit=crop" alt="Cinnamon powder" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Story</span>
+                <h2 class="section-title">About CEYNOVA</h2>
+                <p class="section-subtitle">Rooted in tradition, committed to excellence</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image reveal-left">
+                    <div class="about-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=700&fit=crop" alt="Ceylon cinnamon sticks and powder" loading="lazy">
+                        <div class="about-img-badge">
+                            <span class="badge-year">15+</span>
+                            <span class="badge-text">Years of<br>Excellence</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content reveal-right">
+                    <div class="about-tabs">
+                        <button class="tab-btn active" data-tab="story">Our Story</button>
+                        <button class="tab-btn" data-tab="mission">Mission</button>
+                        <button class="tab-btn" data-tab="vision">Vision</button>
+                    </div>
+                    <div class="tab-content active" id="tab-story">
+                        <h3>A Legacy of Flavor</h3>
+                        <p>Founded in the heart of Sri Lanka's cinnamon country, CEYNOVA CINNAMON began as a small family farm dedicated to producing the world's finest Ceylon cinnamon. Over 15 years, we have grown into a trusted export partner while maintaining our commitment to traditional harvesting methods and sustainable practices.</p>
+                        <p>Every stick of cinnamon we produce carries the warmth of Sri Lankan sunshine and the care of generations of farming expertise.</p>
+                    </div>
+                    <div class="tab-content" id="tab-mission">
+                        <h3>Our Mission</h3>
+                        <p>To deliver the purest Ceylon cinnamon and premium Sri Lankan spices to the world, while empowering local farming communities and preserving our rich agricultural heritage through sustainable and ethical practices.</p>
+                        <p>We believe that exceptional quality starts at the source — from the soil to your table.</p>
+                    </div>
+                    <div class="tab-content" id="tab-vision">
+                        <h3>Our Vision</h3>
+                        <p>To become the world's most trusted source for authentic Ceylon cinnamon, recognized globally for uncompromising quality, sustainability, and the preservation of Sri Lanka's spice heritage for future generations.</p>
+                        <p>We envision a world where every kitchen experiences the true essence of Ceylon cinnamon.</p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🌱</span>
+                            <span class="highlight-text">Authentic Sri Lankan Cinnamon</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">♻️</span>
+                            <span class="highlight-text">Sustainable Farming</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🏆</span>
+                            <span class="highlight-text">Export Quality</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">👨‍👩‍👧‍👦</span>
+                            <span class="highlight-text">Family Tradition</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🌾</span>
+                            <span class="highlight-text">Fresh Harvesting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Collection</span>
+                <h2 class="section-title">Featured Products</h2>
+                <p class="section-subtitle">Discover our premium range of authentic Sri Lankan spices</p>
+            </div>
+
+            <div class="products-toolbar reveal">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <input type="text" id="product-search" placeholder="Search products..." aria-label="Search products">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="cinnamon">Cinnamon</button>
+                    <button class="filter-btn" data-filter="spices">Spices</button>
+                    <button class="filter-btn" data-filter="tea">Tea</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose" class="why-choose section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Why Us</span>
+                <h2 class="section-title">Why Choose CEYNOVA</h2>
+                <p class="section-subtitle">The difference is in every detail</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="32" r="28"/>
+                            <path d="M20 32l8 8 16-16"/>
+                        </svg>
+                    </div>
+                    <h3>100% Pure Ceylon Cinnamon</h3>
+                    <p>Authentic Cinnamomum verum, not cassia. The true cinnamon with delicate flavor and health benefits.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 8L8 24v32h48V24L32 8z"/>
+                            <path d="M24 56V36h16v20"/>
+                        </svg>
+                    </div>
+                    <h3>Direct From Farmers</h3>
+                    <p>No middlemen. We work directly with farming families across Sri Lanka's cinnamon belt.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 4l8 16 16 2-12 12 4 18-16-8-16 8 4-18-12-12 16-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Export Quality</h3>
+                    <p>Every batch meets international food safety and quality standards for global markets.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 8C20 8 12 16 12 28s8 20 20 28c12-8 20-16 20-28S44 8 32 8z"/>
+                            <path d="M32 20v16l8 8"/>
+                        </svg>
+                    </div>
+                    <h3>Organic Practices</h3>
+                    <p>Natural farming methods without harmful chemicals, preserving the integrity of our spices.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="24" r="16"/>
+                            <path d="M32 40v16"/>
+                            <path d="M24 56h16"/>
+                            <path d="M20 32h24"/>
+                        </svg>
+                    </div>
+                    <h3>Worldwide Shipping</h3>
+                    <p>Fast, reliable delivery to over 25 countries with temperature-controlled packaging.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="8" y="12" width="48" height="40" rx="4"/>
+                            <path d="M8 20h48"/>
+                            <circle cx="20" cy="32" r="4"/>
+                            <circle cx="32" cy="32" r="4"/>
+                            <circle cx="44" cy="32" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Fresh Packaging</h3>
+                    <p>Vacuum-sealed, aroma-lock packaging ensures freshness from our farm to your kitchen.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="8" y="20" width="48" height="32" rx="4"/>
+                            <path d="M20 20V12a12 12 0 0124 0v8"/>
+                            <circle cx="32" cy="36" r="4"/>
+                            <path d="M32 40v8"/>
+                        </svg>
+                    </div>
+                    <h3>Secure Payments</h3>
+                    <p>Encrypted transactions with multiple payment options for a worry-free shopping experience.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="32" r="28"/>
+                            <path d="M32 16v16l12 8"/>
+                        </svg>
+                    </div>
+                    <h3>Customer Satisfaction</h3>
+                    <p>100% satisfaction guarantee. Not happy? We'll make it right with a full refund or replacement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Process</span>
+                <h2 class="section-title">From Farm to Table</h2>
+                <p class="section-subtitle">Every step crafted with care and precision</p>
+            </div>
+            <div class="process-timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot">
+                        <span>1</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🌱</div>
+                        <h3>Farm</h3>
+                        <p>Cinnamon trees are nurtured in Sri Lanka's tropical climate with organic farming practices.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot">
+                        <span>2</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">✂️</div>
+                        <h3>Harvest</h3>
+                        <p>Skilled farmers hand-peel the delicate inner bark during the optimal harvest season.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot">
+                        <span>3</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">☀️</div>
+                        <h3>Dry</h3>
+                        <p>Natural sun-drying for 4-5 days to develop the characteristic golden color and aroma.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot">
+                        <span>4</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🔬</div>
+                        <h3>Quality Check</h3>
+                        <p>Rigorous testing for moisture, oil content, and purity to meet export standards.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot">
+                        <span>5</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">📦</div>
+                        <h3>Packaging</h3>
+                        <p>Vacuum-sealed in food-grade packaging to lock in freshness and aroma.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot">
+                        <span>6</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🚢</div>
+                        <h3>Worldwide Delivery</h3>
+                        <p>Shipped globally with temperature-controlled logistics to your doorstep.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Gallery</span>
+                <h2 class="section-title">Our World</h2>
+                <p class="section-subtitle">Glimpses of Sri Lanka's cinnamon heritage</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=400&fit=crop" alt="Cinnamon sticks close-up" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-zoom">🔍</span>
+                        <h4>Pure Ceylon Cinnamon</h4>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1599940824399-b87987ce0799?w=600&h=400&fit=crop" alt="Cinnamon plantation" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-zoom">🔍</span>
+                        <h4>Cinnamon Plantation</h4>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1628556270448-e8c9b9a9e3b4?w=600&h=400&fit=crop" alt="Spice collection" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-zoom">🔍</span>
+                        <h4>Premium Spice Collection</h4>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?w=600&h=400&fit=crop" alt="Harvesting cinnamon" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-zoom">🔍</span>
+                        <h4>Traditional Harvesting</h4>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-index="4">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop" alt="Quality packaging" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-zoom">🔍</span>
+                        <h4>Quality Packaging</h4>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-index="5">
+                    <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&h=400&fit=crop" alt="Sri Lankan landscape" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-zoom">🔍</span>
+                        <h4>Sri Lankan Beauty</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Trusted by customers worldwide</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"The finest cinnamon I've ever used in my bakery. The aroma is incredible and my customers immediately noticed the difference. CEYNOVA has become our exclusive supplier."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Sarah Mitchell" loading="lazy">
+                            <div>
+                                <h4>Sarah Mitchell</h4>
+                                <span>Owner, Artisan Bakes, London</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"As a spice importer in Germany, I've worked with many suppliers. CEYNOVA's consistency in quality and their commitment to sustainable farming sets them apart from everyone else."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Hans Weber" loading="lazy">
+                            <div>
+                                <h4>Hans Weber</h4>
+                                <span>Director, Spice World GmbH, Germany</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"The cinnamon tea is absolutely divine. Smooth, aromatic, and clearly made from premium Ceylon cinnamon. I've recommended it to all my wellness clients."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Emma Chen" loading="lazy">
+                            <div>
+                                <h4>Emma Chen</h4>
+                                <span>Wellness Coach, Singapore</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"We've been importing CEYNOVA spices for our restaurant chain for 3 years. The black pepper and cloves are exceptional. Their packaging keeps everything fresh across continents."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Marco Rossi" loading="lazy">
+                            <div>
+                                <h4>Marco Rossi</h4>
+                                <span>Executive Chef, La Dolce Vita, Italy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Outstanding quality and reliable shipping to Australia. The cinnamon powder is perfect for our spice blends. CEYNOVA truly understands what premium means."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="Priya Sharma" loading="lazy">
+                            <div>
+                                <h4>Priya Sharma</h4>
+                                <span>Founder, Spice Route Co., Australia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonials-nav">
+                    <button class="testimonial-prev" id="testimonial-prev" aria-label="Previous testimonial">&#10094;</button>
+                    <div class="testimonials-dots" id="testimonials-dots"></div>
+                    <button class="testimonial-next" id="testimonial-next" aria-label="Next testimonial">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats">
+        <div class="stats-bg"></div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <span class="stat-suffix">+</span>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="25">0</div>
+                    <span class="stat-suffix">+</span>
+                    <p>Countries Exported</p>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="50">0</div>
+                    <span class="stat-suffix">+</span>
+                    <p>Farm Partners</p>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="15">0</div>
+                    <span class="stat-suffix"></span>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form-wrapper reveal-left">
+                    <form id="contact-form" class="contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                <span class="form-error" id="name-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                <span class="form-error" id="email-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890">
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="SG">Singapore</option>
+                                    <option value="AE">UAE</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="form-error" id="country-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your requirements..." required></textarea>
+                            <span class="form-error" id="message-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <span>Send Message</span>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info reveal-right">
+                    <div class="info-card">
+                        <h3>Business Information</h3>
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div>
+                                <strong>Address</strong>
+                                <p>42 Cinnamon Road, Galle,<br>Southern Province, Sri Lanka</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📧</span>
+                            <div>
+                                <strong>Email</strong>
+                                <p>hello@ceynovacinnamon.com<br>export@ceynovacinnamon.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+94 91 234 5678<br>+94 77 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🕐</span>
+                            <div>
+                                <strong>Working Hours</strong>
+                                <p>Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31736.17911199693!2d80.2106!3d6.0329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae173b5f5c9c3c3%3A0x8e3f5c5c5c5c5c5c!2sGalle%2C%20Sri%20Lanka!5e0!3m2!1sen!2s!4v1234567890"
+                            width="100%" 
+                            height="250" 
+                            style="border:0; border-radius: 16px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="CEYNOVA CINNAMON Location Map">
+                        </iframe>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo" aria-label="CEYNOVA CINNAMON Home">
+                        <span class="logo-icon">🌿</span>
+                        <div class="logo-text">
+                            <span class="logo-name">CEYNOVA</span>
+                            <span class="logo-sub">CINNAMON</span>
+                        </div>
+                    </a>
+                    <p class="footer-tagline">Pure Ceylon Cinnamon. Naturally Premium.</p>
+                    <p class="footer-desc">Exporting the finest Ceylon cinnamon and Sri Lankan spices to the world since 2009. Quality, sustainability, and authenticity in every shipment.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#why-choose">Why Choose Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">Cinnamon Sticks</a></li>
+                        <li><a href="#products">Cinnamon Powder</a></li>
+                        <li><a href="#products">Cinnamon Tea</a></li>
+                        <li><a href="#products">Black Pepper</a></li>
+                        <li><a href="#products">Cloves</a></li>
+                        <li><a href="#products">Cardamom</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive offers, recipes, and spice stories.</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" id="newsletter-email" placeholder="Your email address" required aria-label="Email for newsletter">
+                        <button type="submit" class="btn btn-primary" aria-label="Subscribe to newsletter">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CEYNOVA CINNAMON. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
